@@ -1,0 +1,22 @@
+<!-- TODO: read all instructions
+TODO:look inot github projects using board type
+TODO:create issue tickets
+TODO:plan code under tickets
+TODO:use bootstrap
+TODO:create sorting hat card
+TODO:make hat introduce itself
+TODO:create form including name and sort button
+TODO:make form appear on click of button
+TODO:make sort button work this includes randomly assigning to one of four houses
+TODO:make form create new card, renew itself,
+TODO:card includes name and house and display below the form
+TODO:create delete "expel" function for cards that sends them to voldy's army
+TODO:style app using boot strap
+TODO:make it work
+TODO:check it meets requirements
+
+requirements
+TODO:use non for loop
+TODO:use bootstrap
+TODO:create data structure
+TODO:refactor code (no actions outside of function and use startapp function) -->
