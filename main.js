@@ -6,13 +6,7 @@
 const app = document.querySelector('#app');
 
 const renderForm = () => {
-// const form = document.querySelector('newStudentForm');
-// const sortingHat = document.querySelector('sortingHat');
 nsform.style.display = "flex";
-// sortingHat.style.display = 'none';
-console.log(form);
-console.log(sortingHat);
-console.log(form.style.display);
 }
 
 const startBtn = document.querySelector("#startBtn");
@@ -52,32 +46,31 @@ document.querySelector('#form').addEventListener("submit", (event) => {
     house: sort()
   }
   students.push(newStudent);
+  displayCards(students);
   console.log(students);
-  // form.reset();
+  form.reset();
 })
 
 //render to dom fun
 
-// const displayCards = (array) => {
-//   let cards = '';
-//     for (object of array) {
-//       cards += 
-//      `<div class="card element" style="width: 18rem;">
-//         <div class="card-body">
-//           <h5 class="card-title id="studentName" ">${object.name}</h5>
-//           <p class="card-text" id="petColor" >color:${object.color}</p>
-//           <p id="petSkill" >special skill: ${object.specialSkill}</p>
-//           <p id="petType" >type: ${object.type}</p>
-//           <p 
-//             <button id="delete--${object.id}" class="delete"
-//             >Expel</button>
-//           </p> 
-//         </div>
-//       </div>`;
-//     }
-//   const studentArea = document.querySelector('#studentArea');
-//   studentArea.innerHTML = cards
-//   }
+const displayCards = (array) => {
+  let cards = '';
+    for (object of array) {
+      cards += 
+     `<div class="card element" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title id="studentName" ">${object.firstname} ${object.lastname}</h5>
+          <p id="house" >house: ${object.house}</p>
+            <button id="delete--${object.id}" class="delete"
+            >Expel</button>
+          </p> 
+        </div>
+      </div>`;
+    }
+  const studentArea = document.querySelector('#studentArea');
+  studentArea.innerHTML = cards
+  }
+  
 
 //trouble shooting
 // prevent default
