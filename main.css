@@ -1,3 +1,9 @@
 body {
   background-color: aliceblue;
 }
+#nsform {
+  display: none;
+}
+#sorting-hat {
+  display: flex;
+}
