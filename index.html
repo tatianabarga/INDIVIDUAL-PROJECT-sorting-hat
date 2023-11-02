@@ -11,7 +11,7 @@
   <div id="app">
     <div class="sortingHat" id="sorting-hat">
       <div class="card" style="width: 18rem;">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLKh7uWnJEbU7D5juS8VIRZp7AoT_sJQ-qkQ&usqp=CAU" class="card-img-top" alt="...">
+        <img src="https://gamepress.gg/wizardsunite/sites/wizardsunite/files/2019-08/Brilliant%20Sorting%20Hat-foundable.png" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">The Sorting Hat-</h5>
           <p class="card-text">Let's get these students into their houses! Click the start button to begin...</p>
@@ -24,13 +24,13 @@
       <form id="form">
         <div class="mb-3">
           <label for="firstName" class="firstNameLabel">First Name</label>
-          <input type="text" class="firstName" id="first-name" aria-describedby="students-first-name" required>
+          <input type="text" class="firstName input" id="first-name" aria-describedby="students-first-name" required>
           <div id="students-first-name" class="form-text">students first name</div>
         </div>
 
         <div class="mb-3">
           <label for="lastName" class="lastNameLabel">Last Name</label>
-          <input type="text" class="lastName" id="last-name" aria-describedby="students-last-name" required>
+          <input type="text" class="lastName input" id="last-name" aria-describedby="students-last-name" required>
           <div id="students-last-name" class="form-text">students last name</div>
         </div>
         
@@ -44,16 +44,17 @@
     <button class="filter btn" id="sl">Slytherin</button>
     <button class="filter btn" id="rc">Ravenclaw</button>
     <button class="filter btn" id="gr">Gryffindor</button>
+    <button class="filter btn" id="clear">All</button>
   </div>
 
   <div id="studentArea">
     <div>
       <h5>Hogwarts</h5>
-      <div id="hogwarts"></div>
+      <div id="hogwarts" class="inSA"></div>
     </div>
     <div>
       <h5>Death Eaters</h5>
-      <div id="deathEaters"></div>
+      <div id="deathEaters" class="inSA"></div>
     </div>
   </div>
 

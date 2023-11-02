@@ -80,11 +80,11 @@ const displayCards = (array, place) => {
   let cards = '';
     for (object of array) {
       cards += 
-     `<div class="card element" style="width: 18rem;">
+     `<div class="card stucard" style="width: 18rem;">
         <div class="card-body">
           <h5 class="card-title id="studentName" ">${object.firstname} ${object.lastname}</h5>
           <p id="house" >house: ${object.house}</p>
-            <button id="delete--${object.id}" class="delete"
+            <button id="delete--${object.id}" class="delete btn"
             >Expel</button>
           </p> 
         </div>
@@ -116,28 +116,6 @@ const displayCards = (array, place) => {
 
   //filterbtns funcitons
 
-  // let hufflepuff = [];
-  // let slytherin = [];
-  // let gryffindor = [];
-  // let ravenclaw = [];
-
-  // const putInHouseArrays = () => {
-  //   for (student of students) {
-  //     if (student.house === 'Hufflepuff') {
-  //       hufflepuff.push(student);
-  //     }
-  //     if (student.house === 'Gryffindor') {
-  //       gryffindor.push(student);
-  //     }
-  //     if (student.house === 'Slytherin') {
-  //       slytherin.push(student);
-  //     }
-  //     if (student.house === 'Ravenclaw') {
-  //       ravenclaw.push(student);
-  //     }
-  //   }
-  // }
-
   const filterbtns = document.querySelector('#filterbtns')
 
   filterbtns.addEventListener('click', (e) => {
@@ -153,13 +131,17 @@ const displayCards = (array, place) => {
     if (e.target.id === 'rc') {
       displayCards(ravenclaw, hogwarts);
     }
+    if (e.target.id === 'clear') {
+      displayCards(students, hogwarts);
+    }
   })
 
 
 //trouble shooting
-// prevent default
-// document selector for form
 
 //refactoring 
 //combine eventlistener and function for render form and start btn
 //clean up expel function
+//move css around for easier to find
+//expel button remains on expel students
+// clear filter btn
