@@ -39,6 +39,11 @@ const sort = () => {
 
 let students = [];
 
+let hufflepuff = [];
+let slytherin = [];
+let gryffindor = [];
+let ravenclaw = [];
+
 const submitBtn = document.querySelector("#submitBtn");
 document.querySelector('#form').addEventListener("submit", (event) => {
     event.preventDefault();
@@ -49,6 +54,21 @@ document.querySelector('#form').addEventListener("submit", (event) => {
     lastname: document.querySelector('#last-name').value,
     house: sort()
   }
+
+
+  if (newStudent.house === 'Hufflepuff') {
+    hufflepuff.push(newStudent);
+  }
+  if (newStudent.house === 'Gryffindor') {
+    gryffindor.push(newStudent);
+  }
+  if (newStudent.house === 'Slytherin') {
+    slytherin.push(newStudent);
+  }
+  if (newStudent.house === 'Ravenclaw') {
+    ravenclaw.push(newStudent);
+  }
+
   students.push(newStudent);
   displayCards(students, hogwarts);
   form.reset();
@@ -94,9 +114,52 @@ const displayCards = (array, place) => {
   })
   
 
+  //filterbtns funcitons
+
+  // let hufflepuff = [];
+  // let slytherin = [];
+  // let gryffindor = [];
+  // let ravenclaw = [];
+
+  // const putInHouseArrays = () => {
+  //   for (student of students) {
+  //     if (student.house === 'Hufflepuff') {
+  //       hufflepuff.push(student);
+  //     }
+  //     if (student.house === 'Gryffindor') {
+  //       gryffindor.push(student);
+  //     }
+  //     if (student.house === 'Slytherin') {
+  //       slytherin.push(student);
+  //     }
+  //     if (student.house === 'Ravenclaw') {
+  //       ravenclaw.push(student);
+  //     }
+  //   }
+  // }
+
+  const filterbtns = document.querySelector('#filterbtns')
+
+  filterbtns.addEventListener('click', (e) => {
+    if (e.target.id === 'hp') {
+      displayCards(hufflepuff, hogwarts);
+    }
+    if (e.target.id === 'gr') {
+      displayCards(gryffindor, hogwarts);
+    }
+    if (e.target.id === 'sl') {
+      displayCards(slytherin, hogwarts);
+    }
+    if (e.target.id === 'rc') {
+      displayCards(ravenclaw, hogwarts);
+    }
+  })
+
+
 //trouble shooting
 // prevent default
 // document selector for form
 
 //refactoring 
 //combine eventlistener and function for render form and start btn
+//clean up expel function
