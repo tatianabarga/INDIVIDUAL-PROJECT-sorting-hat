@@ -1,9 +1,80 @@
 body {
-  background-color: aliceblue;
+  background-color: rgb(48, 11, 63);
+  color: rgb(253, 240, 255);
+}
+.sortingHat {
+  margin: 50px;
+}
+.btn {
+  background-color: rgb(148, 136, 153);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-self: center;
+  flex-wrap: wrap;
+  margin: 10px;
+  color: rgb(253, 240, 255);
+}
+.delete {
+  background-color: blueviolet;
 }
 #nsform {
   display: none;
+  margin: 50px;
+  border-radius: 20px;
+  background-color: rgb(84, 43, 104);
+  width: 400px;
+  height: 300px;
+  justify-content: center;
+  align-self: center;
+  padding: 50px;
 }
-#sorting-hat {
+#studentArea {
   display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 50px;
 }
+.inSA {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 400px;
+  margin: 5px;
+}
+.card {
+  background-color: rgb(17, 7, 22);
+  border-radius: 20px;
+}
+#app {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+#filterbtns {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-self: center;
+  flex-wrap: wrap;
+}
+.input {
+  background-color: rgb(253, 240, 255);
+  color: rgb(17, 7, 22);
+  border: none;
+  border-radius: 20px;
+}
+.stucard {
+  margin: 10px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 70px;
+}
+
+/* #sorting-hat {
+  display: flex;
+} */
