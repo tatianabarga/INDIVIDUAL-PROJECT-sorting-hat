@@ -4,6 +4,10 @@
 
 
 const app = document.querySelector('#app');
+const studentArea = document.querySelector('#studentArea');
+const hogwarts = document.querySelector('#hogwarts');
+const deathEaters = document.querySelector('#deathEaters');
+
 
 const renderForm = () => {
 nsform.style.display = "flex";
@@ -46,14 +50,13 @@ document.querySelector('#form').addEventListener("submit", (event) => {
     house: sort()
   }
   students.push(newStudent);
-  displayCards(students);
-  console.log(students);
+  displayCards(students, hogwarts);
   form.reset();
 })
 
 //render to dom fun
 
-const displayCards = (array) => {
+const displayCards = (array, place) => {
   let cards = '';
     for (object of array) {
       cards += 
@@ -67,9 +70,28 @@ const displayCards = (array) => {
         </div>
       </div>`;
     }
-  const studentArea = document.querySelector('#studentArea');
-  studentArea.innerHTML = cards
+  place.innerHTML = cards;
   }
+
+
+  //expel function
+
+  let deathEaterArray = [];
+  studentArea.addEventListener('click', (e) => {
+    if (e.target.id.includes('delete')) {
+      const [, id] = e.target.id.split('--');
+      const index = students.findIndex((e) => e.id === Number(id));
+      const indexDE = deathEaterArray.length - 1;
+      const newDE = [];
+      newDE.house = 'Voldy Lover';
+      newDE.firstname = students[index].firstname;
+      newDE.lastname = students[index].lastname;
+      deathEaterArray.push(newDE);
+      students.splice(index, 1);
+      displayCards(students, hogwarts);
+      displayCards(deathEaterArray, deathEaters);
+    }
+  })
   
 
 //trouble shooting
