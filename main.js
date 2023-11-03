@@ -1,61 +1,51 @@
+//all events
+const events = () => {
+  const app = document.querySelector('#app');
+  const studentArea = document.querySelector('#studentArea');
+  const hogwarts = document.querySelector('#hogwarts');
+  const deathEaters = document.querySelector('#deathEaters');
+  const filterbtns = document.querySelector('#filterbtns')
+  const startBtn = document.querySelector("#startBtn");
+  const submitBtn = document.querySelector("#submitBtn");
+  
+  let students = [];
+  let hufflepuff = [];
+  let slytherin = [];
+  let gryffindor = [];
+  let ravenclaw = [];
+  let deathEaterArray = [];
+  
+  
+  //render form
+  startBtn.addEventListener("click", (event) => {
+    nsform.style.display = "flex";
+  })
 
 
-//start btn display form
-
-
-const app = document.querySelector('#app');
-const studentArea = document.querySelector('#studentArea');
-const hogwarts = document.querySelector('#hogwarts');
-const deathEaters = document.querySelector('#deathEaters');
-
-
-const renderForm = () => {
-nsform.style.display = "flex";
-}
-
-const startBtn = document.querySelector("#startBtn");
-startBtn.addEventListener("click", (event) => {
-  renderForm();
-})
-
-//sort function
-
-const sort = () => {
-  let randomNum = Math.random();
-  let house = '';
-  if (randomNum >= 0 && randomNum < .25) {
-    house = 'Hufflepuff';
-  } else if (randomNum >= .25 && randomNum < .5) {
-    house = 'Gryffindor';
-  } else if (randomNum >= .5 && randomNum < .75) {
-    house = 'Slytherin';
-  } else if (randomNum >= .75 && randomNum < 1) {
-    house = 'Ravenclaw';
+  //sort function
+  const sort = () => {
+    let randomNum = Math.random();
+    let house = '';
+    if (randomNum >= 0 && randomNum < .25) {
+      house = 'Hufflepuff';
+    } else if (randomNum >= .25 && randomNum < .5) {
+      house = 'Gryffindor';
+    } else if (randomNum >= .5 && randomNum < .75) {
+      house = 'Slytherin';
+    } else if (randomNum >= .75 && randomNum < 1) {
+      house = 'Ravenclaw';
+    }
+    return house;
   }
-  return house;
-}
-
-//sort btn function
-
-let students = [];
-
-let hufflepuff = [];
-let slytherin = [];
-let gryffindor = [];
-let ravenclaw = [];
-
-const submitBtn = document.querySelector("#submitBtn");
-document.querySelector('#form').addEventListener("submit", (event) => {
-    event.preventDefault();
-
-    const newStudent = {
-    id: students.length + 1,
-    firstname: document.querySelector('#first-name').value,
-    lastname: document.querySelector('#last-name').value,
-    house: sort()
-  }
-
-
+  document.querySelector('#form').addEventListener("submit", (event) => {
+      event.preventDefault();
+      const newStudent = {
+      id: students.length + 1,
+      firstname: document.querySelector('#first-name').value,
+      lastname: document.querySelector('#last-name').value,
+      house: sort()
+    }
+    
   if (newStudent.house === 'Hufflepuff') {
     hufflepuff.push(newStudent);
   }
@@ -66,37 +56,33 @@ document.querySelector('#form').addEventListener("submit", (event) => {
     slytherin.push(newStudent);
   }
   if (newStudent.house === 'Ravenclaw') {
-    ravenclaw.push(newStudent);
-  }
+      ravenclaw.push(newStudent);
+    }
+    
+    students.push(newStudent);
+    displayCards(students, hogwarts);
+    form.reset();
+  })
 
-  students.push(newStudent);
-  displayCards(students, hogwarts);
-  form.reset();
-})
-
-//render to dom fun
-
-const displayCards = (array, place) => {
-  let cards = '';
+//render to dom function
+  const displayCards = (array, place) => {
+    let cards = '';
     for (object of array) {
       cards += 
-     `<div class="card stucard" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title id="studentName" ">${object.firstname} ${object.lastname}</h5>
-          <p id="house" >house: ${object.house}</p>
-            <button id="delete--${object.id}" class="delete btn"
-            >Expel</button>
-          </p> 
+      `<div class="card stucard" style="width: 18rem;">
+      <div class="card-body">
+      <h5 class="card-title id="studentName" ">${object.firstname} ${object.lastname}</h5>
+      <p id="house" >house: ${object.house}</p>
+      <button id="delete--${object.id}" class="delete btn"
+        >Expel</button>
+        </p> 
         </div>
-      </div>`;
+        </div>`;
     }
-  place.innerHTML = cards;
+    place.innerHTML = cards;
   }
 
-
   //expel function
-
-  let deathEaterArray = [];
   studentArea.addEventListener('click', (e) => {
     if (e.target.id.includes('delete')) {
       const [, id] = e.target.id.split('--');
@@ -113,11 +99,7 @@ const displayCards = (array, place) => {
     }
   })
   
-
   //filterbtns funcitons
-
-  const filterbtns = document.querySelector('#filterbtns')
-
   filterbtns.addEventListener('click', (e) => {
     if (e.target.id === 'hp') {
       displayCards(hufflepuff, hogwarts);
@@ -134,8 +116,16 @@ const displayCards = (array, place) => {
     if (e.target.id === 'clear') {
       displayCards(students, hogwarts);
     }
-  })
 
+  })
+}
+
+  //startappp
+const startApp = () => {
+  events();
+}
+
+  startApp();
 
 //trouble shooting
 
