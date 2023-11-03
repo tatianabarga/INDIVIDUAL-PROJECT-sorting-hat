@@ -45,19 +45,6 @@ const events = () => {
       house: sort()
     }
     
-  if (newStudent.house === 'Hufflepuff') {
-    hufflepuff.push(newStudent);
-  }
-  if (newStudent.house === 'Gryffindor') {
-    gryffindor.push(newStudent);
-  }
-  if (newStudent.house === 'Slytherin') {
-    slytherin.push(newStudent);
-  }
-  if (newStudent.house === 'Ravenclaw') {
-      ravenclaw.push(newStudent);
-    }
-    
     students.push(newStudent);
     displayCards(students, hogwarts);
     form.reset();
@@ -101,21 +88,24 @@ const events = () => {
   //filterbtns funcitons
   filterbtns.addEventListener('click', (e) => {
     if (e.target.id === 'hp') {
-      displayCards(hufflepuff, hogwarts);
+      const hp = students.filter((huff) => huff.house === 'Hufflepuff')
+      displayCards(hp, hogwarts);
     }
     if (e.target.id === 'gr') {
-      displayCards(gryffindor, hogwarts);
+      const gr = students.filter((gryff) => gryff.house === 'Gryffindor')
+      displayCards(gr, hogwarts);
     }
     if (e.target.id === 'sl') {
-      displayCards(slytherin, hogwarts);
+      const sl = students.filter((slyth) => slyth.house === 'Slytherin')
+      displayCards(sl, hogwarts);
     }
     if (e.target.id === 'rc') {
-      displayCards(ravenclaw, hogwarts);
+      const rc = students.filter((rav) => rav.house === 'Ravenclaw')
+      displayCards(rc, hogwarts);
     }
     if (e.target.id === 'clear') {
       displayCards(students, hogwarts);
     }
-
   })
 }
 
