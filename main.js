@@ -1,3 +1,4 @@
+
 //all events
 const events = () => {
   const app = document.querySelector('#app');
@@ -15,12 +16,10 @@ const events = () => {
   let ravenclaw = [];
   let deathEaterArray = [];
   
-  
   //render form
   startBtn.addEventListener("click", (event) => {
     nsform.style.display = "flex";
   })
-
 
   //sort function
   const sort = () => {
@@ -64,7 +63,7 @@ const events = () => {
     form.reset();
   })
 
-//render to dom function
+  //render to dom function
   const displayCards = (array, place) => {
     let cards = '';
     for (object of array) {
@@ -120,7 +119,7 @@ const events = () => {
   })
 }
 
-  //startappp
+//startapp
 const startApp = () => {
   events();
 }
@@ -130,8 +129,5 @@ const startApp = () => {
 //trouble shooting
 
 //refactoring 
-//combine eventlistener and function for render form and start btn
-//clean up expel function
 //move css around for easier to find
 //expel button remains on expel students
-// clear filter btn
